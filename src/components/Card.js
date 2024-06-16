@@ -3,7 +3,6 @@ import { useDispatchCart, useCart } from "./ContextReducer";
 
 export default function Card(props) {
   const dispatch = useDispatchCart();
-  const cartItems = useCart();
   const priceRef = useRef();
   const [qty, setQty] = useState(1);
   const [size, setSize] = useState("");

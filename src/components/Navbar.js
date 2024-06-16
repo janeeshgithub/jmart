@@ -44,12 +44,12 @@ export default function Navbar() {
                 </Link>
               </li>
 
-              {localStorage.getItem("authtoken") ? (
+              {localStorage.getItem("authToken") ? (
                 <li className="nav-item">
                   <Link
                     className="nav-link active fs-5"
                     aria-current="page"
-                    to="/"
+                    to="/myOrder"
                   >
                     My Orders
                   </Link>

@@ -32,6 +32,7 @@ export default function Login() {
       alert("OPEN YOUR EYES AND SEE");
     }
     if (json.success) {
+      localStorage.setItem("userEmail", cred.email);
       localStorage.setItem("authToken",json.authToken);
       console.log(localStorage.getItem("authToken"))
       navigate("/");

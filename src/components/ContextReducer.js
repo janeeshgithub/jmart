@@ -21,6 +21,7 @@ const reducer = (state, action) => {
       ];
     case "REMOVE":
       return state.filter((item, index) => index !== action.index);
+
     case "UPDATE":
       return state.map((item) => {
         if (item.id === action.id) {
@@ -32,6 +33,9 @@ const reducer = (state, action) => {
         }
         return item;
       });
+    case "DROP":
+      return [];
+
     default:
       console.log("Error in Reducer");
       return state;

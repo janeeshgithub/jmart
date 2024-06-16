@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
-import DeleteIcon from '@material-ui/icons/Delete';
+import React, { useEffect, useState } from "react";
+import DeleteIcon from "@material-ui/icons/Delete";
 import { useCart, useDispatchCart } from "../components/ContextReducer";
 
 export default function Cart() {
   const data = useCart();
   const dispatch = useDispatchCart();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     console.log(data);
@@ -20,8 +23,12 @@ export default function Cart() {
 
   const handleCheckOut = async () => {
     const userEmail = localStorage.getItem("userEmail");
+    setLoading(true);
+    setError(null);
+    setSuccess(false);
+
     try {
-      const response = await fetch("http://localhost:5000/api/auth/orderData", {
+      const response = await fetch("http://localhost:5000/api/OrderData", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -33,16 +40,16 @@ export default function Cart() {
         }),
       });
 
-      console.log("JSON RESPONSE:::::", response.status);
       if (response.status === 200) {
         dispatch({ type: "DROP" });
+        setSuccess(true);
       } else {
-        // handle server errors
-        console.error("Failed to checkout:", response.status);
+        setError("Failed to complete the checkout. Please try again.");
       }
     } catch (error) {
-      // handle network errors
-      console.error("Checkout error:", error);
+      setError("Checkout error: " + error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -71,7 +78,11 @@ export default function Cart() {
                 <td>{item.size}</td>
                 <td>{item.price}</td>
                 <td>
-                  <button type="button" className="btn p-0" onClick={() => dispatch({ type: "REMOVE", index })}>
+                  <button
+                    type="button"
+                    className="btn p-0"
+                    onClick={() => dispatch({ type: "REMOVE", index })}
+                  >
                     <DeleteIcon />
                   </button>
                 </td>
@@ -82,9 +93,19 @@ export default function Cart() {
         <div>
           <h1 className="fs-2">Total Price: {totalPrice}/-</h1>
         </div>
+        {error && (
+          <div className="alert alert-danger mt-3" role="alert">
+            {error}
+          </div>
+        )}
+        {success && (
+          <div className="alert alert-success mt-3" role="alert">
+            Checkout completed successfully!
+          </div>
+        )}
         <div>
-          <button className="btn bg-success mt-5" onClick={handleCheckOut}>
-            Check Out
+          <button className="btn bg-success mt-5" onClick={handleCheckOut} disabled={loading}>
+            {loading ? "Processing..." : "Check Out"}
           </button>
         </div>
       </div>
