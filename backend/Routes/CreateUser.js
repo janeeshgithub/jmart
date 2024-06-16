@@ -46,14 +46,14 @@ router.post(
     try {
       let userdata = await User.findOne({ email });
       if (!userdata) {
-        return res.status(400).json({ errors: "WRONG FUCKER" });
+        return res.status(400).json({ errors: "ENTER VALID CRED" });
       }
       const pwdcompare = await bcrypt.compare(
         req.body.password,
         userdata.password
       );
       if (!pwdcompare) {
-        return res.status(400).json({ errors: "WRONG FUCKER" });
+        return res.status(400).json({ errors: "ENTER VALID CREDENTIALS" });
       }
       const data = {
         user: {
