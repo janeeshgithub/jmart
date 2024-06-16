@@ -1,8 +1,10 @@
 import React, { createContext, useContext, useReducer } from "react";
 
+// Create context for state and dispatch
 const CartStateContext = createContext();
 const CartDispatchContext = createContext();
 
+// Reducer function to manage cart state
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD":
@@ -17,23 +19,38 @@ const reducer = (state, action) => {
           img: action.img,
         },
       ];
-
+    case "REMOVE":
+      return state.filter((item, index) => index !== action.index);
+    case "UPDATE":
+      return state.map((item) => {
+        if (item.id === action.id) {
+          return {
+            ...item,
+            qty: parseInt(action.qty) + item.qty,
+            price: action.price + item.price,
+          };
+        }
+        return item;
+      });
     default:
       console.log("Error in Reducer");
+      return state;
   }
 };
 
+// CartProvider component to provide state and dispatch
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, []);
+
   return (
-    <>
-      <CartDispatchContext.Provider value={dispatch}>
-        <CartStateContext.Provider value={state}>
-          {children}
-        </CartStateContext.Provider>
-      </CartDispatchContext.Provider>
-    </>
+    <CartDispatchContext.Provider value={dispatch}>
+      <CartStateContext.Provider value={state}>
+        {children}
+      </CartStateContext.Provider>
+    </CartDispatchContext.Provider>
   );
 };
+
+// Custom hooks to use the cart state and dispatch function
 export const useCart = () => useContext(CartStateContext);
 export const useDispatchCart = () => useContext(CartDispatchContext);

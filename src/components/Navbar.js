@@ -1,15 +1,19 @@
-import React from "react";
-import { Link,useNavigate } from "react-router-dom";
-import Badge from 'react-bootstrap/Badge';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Badge from "react-bootstrap/Badge";
+import Modal from "../screens/Modal";
+import Cart from "../screens/Cart";
+import { useCart } from "./ContextReducer";
 
-export default function Navbar() 
-{
+export default function Navbar() {
+  const [cartView, setCartView] = useState(false);
+  let data = useCart();
   const navigate = useNavigate();
-  const handleLogout=()=>{
+  const handleLogout = () => {
     localStorage.removeItem("authToken");
     navigate("/login");
-  }
-    
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -40,7 +44,7 @@ export default function Navbar()
                 </Link>
               </li>
 
-              {(localStorage.getItem("authtoken"))?
+              {localStorage.getItem("authtoken") ? (
                 <li className="nav-item">
                   <Link
                     className="nav-link active fs-5"
@@ -50,11 +54,12 @@ export default function Navbar()
                     My Orders
                   </Link>
                 </li>
-               : 
-                ""}
+              ) : (
+                ""
+              )}
             </ul>
 
-            {!(localStorage.getItem("authToken")) ? 
+            {!localStorage.getItem("authToken") ? (
               <div className="d-flex">
                 <Link className="btn bg-white text-success mx-1" to="/login">
                   Login
@@ -63,15 +68,32 @@ export default function Navbar()
                   Signup
                 </Link>
               </div>
-             : 
+            ) : (
               <div>
-              <div className="btn bg-white text-success mx-2">My Cart{"  "}
-              <Badge pill bg="danger">{3}</Badge>
+                <div
+                  className="btn bg-white text-success mx-2"
+                  onClick={() => {
+                    setCartView(true);
+                  }}
+                >
+                  My Cart{"  "}
+                  <Badge pill bg="danger">
+                    {data.length}
+                  </Badge>
+                </div>
+                {cartView ? (
+                  <Modal onClose={() => setCartView(false)}>
+                    <Cart />
+                  </Modal>
+                ) : null}
+                <div
+                  className="btn bg-white text-danger mx-1"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </div>
               </div>
-
-              <div className="btn bg-white text-danger mx-1" onClick={handleLogout}>Logout</div>
-            </div>
-            }
+            )}
           </div>
         </div>
       </nav>
