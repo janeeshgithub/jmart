@@ -63,7 +63,7 @@ export default function Home() {
               <img
                 src="https://wallpapers-clan.com/wp-content/uploads/2024/04/marvel-scary-venom-dark-blue-purple-desktop-wallpaper-cover.jpg"
                 className="d-block w-100"
-                style={{ filter: "brightness(70%)" }}
+                style={{ filter: "brightness(80%)" }}
                 alt="..."
               />
             </div>
@@ -71,7 +71,7 @@ export default function Home() {
               <img
                 src="https://wallpapers-clan.com/wp-content/uploads/2024/04/marvel-spiderman-night-cityscape-desktop-wallpaper-preview.jpg"
                 className="d-block w-100"
-                style={{ filter: "brightness(60%)" }}
+                style={{ filter: "brightness(90%)" }}
                 alt="..."
               />
             </div>

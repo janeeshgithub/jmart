@@ -33,7 +33,17 @@ export default function MyOrder() {
         <Navbar />
       </div>
 
-      <div className="container">
+      <div
+        className="container"
+        style={{
+          backgroundImage: `url('https://wallpapers-clan.com/wp-content/uploads/2024/04/dc-flash-running-blue-desktop-wallpaper-preview.jpg')`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          minHeight: "100vh",
+          padding: "20px",
+        }}
+      >
         <div className="row">
           {orderData !== {}
             ? Array(orderData).map((data) => {

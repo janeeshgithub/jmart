@@ -56,7 +56,16 @@ export default function Cart() {
   const totalPrice = data.reduce((total, item) => total + item.price, 0);
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url('https://wallpapers-clan.com/wp-content/uploads/2023/11/dc-comics-batman-bats-dark-red-desktop-wallpaper-cover.jpg')`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        minHeight: "100vh",
+        padding: "20px",
+      }}
+    >
       <div className="container m-auto mt-5 table-responsive table-responsive-sm table-responsive-md">
         <table className="table table-hover">
           <thead className="text-success fs-4">
@@ -104,7 +113,11 @@ export default function Cart() {
           </div>
         )}
         <div>
-          <button className="btn bg-success mt-5" onClick={handleCheckOut} disabled={loading}>
+          <button
+            className="btn bg-success mt-5"
+            onClick={handleCheckOut}
+            disabled={loading}
+          >
             {loading ? "Processing..." : "Check Out"}
           </button>
         </div>
