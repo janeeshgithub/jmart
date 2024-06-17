@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { Link, json } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Signup() {
   const [cred, setcred] = useState({
     name: "",
     email: "",
     password: "",
-    loction: "",
+    location: "",
   });
-  const handleSubmit = async (jp) => {
-    jp.preventDefault();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     const response = await fetch("http://localhost:5000/api/createuser", {
       method: "POST",
       headers: {
@@ -26,22 +27,45 @@ export default function Signup() {
     console.log(json);
 
     if (!json.success) {
-      alert("Fuck you user");
+      alert("Error: User creation failed");
+    } else {
+      window.location.href = "/login";
     }
   };
+
   const onChange = (event) => {
     setcred({ ...cred, [event.target.name]: event.target.value });
   };
+
   return (
     <>
-      <div className="container">
-        <form onSubmit={handleSubmit}>
+      <div
+        className="container"
+        style={{
+          backgroundImage: `url('https://wallpapers-clan.com/wp-content/uploads/2023/11/marvel-iron-man-in-destroyed-suit-desktop-wallpaper-preview.jpg')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+        }}
+      >
+        <form
+          onSubmit={handleSubmit}
+          style={{ padding: "20px", borderRadius: "10px" }}
+        >
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
               Name
             </label>
             <input
-              type="name"
+              type="text"
               className="form-control"
               name="name"
               value={cred.name}
@@ -49,7 +73,11 @@ export default function Signup() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
+            <label
+              htmlFor="exampleInputEmail1"
+              className="form-label"
+              style={{ color: "blue" }}
+            >
               Email address
             </label>
             <input
@@ -62,7 +90,7 @@ export default function Signup() {
               onChange={onChange}
             />
             <div id="emailHelp" className="form-text">
-              never with anyone else.
+              Never share your email with anyone else.
             </div>
           </div>
           <div className="mb-3">
@@ -74,7 +102,6 @@ export default function Signup() {
               className="form-control"
               name="password"
               value={cred.password}
-              id="password"
               onChange={onChange}
             />
           </div>
@@ -84,11 +111,10 @@ export default function Signup() {
               Address
             </label>
             <input
-              type="address"
+              type="text"
               className="form-control"
               name="location"
               value={cred.location}
-              id="address"
               onChange={onChange}
             />
           </div>

@@ -5,12 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://wallpapers-clan.com/wp-content/uploads/2023/11/aesthetic-spider-man-marvel-desktop-wallpaper-preview.jpg");
+  background-size: cover; /* Adjusts the background image size to cover the entire body */
+  background-repeat: no-repeat; /* Ensures the background image does not repeat */
+  background-attachment: fixed; /* Optional: Fixes the background image while scrolling */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 #carousel {
-  max-height: 500px;
+  max-height: 350px;
 }

@@ -33,8 +33,8 @@ export default function Login() {
     }
     if (json.success) {
       localStorage.setItem("userEmail", cred.email);
-      localStorage.setItem("authToken",json.authToken);
-      console.log(localStorage.getItem("authToken"))
+      localStorage.setItem("authToken", json.authToken);
+      console.log(localStorage.getItem("authToken"));
       navigate("/");
     }
   };
@@ -43,10 +43,27 @@ export default function Login() {
   };
   return (
     <>
-      <div className="container">
+      <div
+        className="container form-container"
+        style={{
+          backgroundImage:
+            "url(https://wallpapers-clan.com/wp-content/uploads/2024/02/spiderman-miles-morales-night-city-desktop-wallpaper-preview.jpg)", // Replace with your image path
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "100vh", // Ensure the background covers the entire viewport height
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "20px",
+        }}
+      >
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
+            <label
+              htmlFor="exampleInputEmail1"
+              className="form-label "
+              style={{ fontSize: "1.2rem" }}
+            >
               Email address
             </label>
             <input
@@ -58,12 +75,16 @@ export default function Login() {
               aria-describedby="emailHelp"
               onChange={onChange}
             />
-            <div id="emailHelp" className="form-text">
-              never with anyone else.
+            <div id="emailHelp" className="form-text text-bg-dark">
+              We'll never share your email with anyone else.
             </div>
           </div>
           <div className="mb-3">
-            <label htmlFor="password" className="form-label">
+            <label
+              htmlFor="password"
+              className="form-label"
+              style={{ fontSize: "1.2rem" }}
+            >
               Password
             </label>
             <input
@@ -76,12 +97,14 @@ export default function Login() {
             />
           </div>
 
-          <button type="submit" className="btn btn-success">
-            Submit
-          </button>
-          <Link to="/signup" className="m-3 btn btn-danger">
-            New User
-          </Link>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <button type="submit" className="btn btn-success me-5">
+              Submit
+            </button>
+            <Link to="/signup" className="btn btn-danger me-2">
+              New User?
+            </Link>
+          </div>
         </form>
       </div>
     </>

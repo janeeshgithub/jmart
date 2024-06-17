@@ -53,17 +53,25 @@ export default function Home() {
             </div>
             <div className="carousel-item active">
               <img
-                src="https://media.istockphoto.com/id/1494104649/photo/ai-chatbot-artificial-intelligence-digital-concept.jpg?s=1024x1024&w=is&k=20&c=FQZBVxbXjhgPzm-W-5Jo3O7x7OXLPugwXzTKEu6nV3w="
+                src="https://wallpapers-clan.com/wp-content/uploads/2024/05/marvel-star-lord-with-quad-blasters-desktop-wallpaper-cover.jpg"
                 className="d-block w-100"
-                style={{ filter: "brightness(30%)" }}
+                style={{ filter: "brightness(60%)" }}
                 alt="..."
               />
             </div>
             <div className="carousel-item">
               <img
-                src="https://media.istockphoto.com/id/1494104649/photo/ai-chatbot-artificial-intelligence-digital-concept.jpg?s=1024x1024&w=is&k=20&c=FQZBVxbXjhgPzm-W-5Jo3O7x7OXLPugwXzTKEu6nV3w="
+                src="https://wallpapers-clan.com/wp-content/uploads/2024/04/marvel-scary-venom-dark-blue-purple-desktop-wallpaper-cover.jpg"
                 className="d-block w-100"
                 style={{ filter: "brightness(70%)" }}
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://wallpapers-clan.com/wp-content/uploads/2024/04/marvel-spiderman-night-cityscape-desktop-wallpaper-preview.jpg"
+                className="d-block w-100"
+                style={{ filter: "brightness(60%)" }}
                 alt="..."
               />
             </div>
@@ -74,7 +82,10 @@ export default function Home() {
             data-bs-target="#carouselExampleFade"
             data-bs-slide="prev"
           >
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Previous</span>
           </button>
           <button
@@ -83,7 +94,10 @@ export default function Home() {
             data-bs-target="#carouselExampleFade"
             data-bs-slide="next"
           >
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Next</span>
           </button>
         </div>
