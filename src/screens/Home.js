@@ -53,9 +53,9 @@ export default function Home() {
             </div>
             <div className="carousel-item active">
               <img
-                src="https://wallpapers-clan.com/wp-content/uploads/2024/05/marvel-star-lord-with-quad-blasters-desktop-wallpaper-cover.jpg"
+                src="https://wallpapers-clan.com/wp-content/uploads/2024/05/angry-hulk-marvel-desktop-wallpaper-cover.jpg"
                 className="d-block w-100"
-                style={{ filter: "brightness(95%)" }}
+                style={{ filter: "brightness(100%)" }}
                 alt="..."
               />
             </div>
@@ -64,6 +64,14 @@ export default function Home() {
                 src="https://wallpapers-clan.com/wp-content/uploads/2024/04/marvel-scary-venom-dark-blue-purple-desktop-wallpaper-cover.jpg"
                 className="d-block w-100"
                 style={{ filter: "brightness(95%)" }}
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://wallpapers-clan.com/wp-content/uploads/2023/11/marvel-thanos-with-gauntlet-purple-desktop-wallpaper-cover.jpg"
+                className="d-block w-100"
+                style={{ filter: "brightness(100%)" }}
                 alt="..."
               />
             </div>
