@@ -98,7 +98,7 @@ export default function Card(props) {
                 ))}
               </select>
             </div>
-            <div className="d-inline mt-2">${Price}/-</div>
+            <div className="d-inline mt-2">₹{Price}/-</div>
           </div>
           <hr />
           <button
