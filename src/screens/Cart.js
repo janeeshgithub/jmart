@@ -15,8 +15,23 @@ export default function Cart() {
 
   if (data.length === 0) {
     return (
-      <div>
-        <div className="m-5 w-100 text-center fs-3">The Cart is Empty!</div>
+      <div
+        style={{
+          backgroundImage: `url('https://wallpapers-clan.com/wp-content/uploads/2024/02/aesthetic-spiderman-logo-desktop-wallpaper-preview.jpg')`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "20px",
+          textAlign: "center",
+          color: "white",
+          fontSize: "2rem",
+        }}
+      >
+        The Cart is Empty!
       </div>
     );
   }
@@ -66,9 +81,18 @@ export default function Cart() {
         padding: "20px",
       }}
     >
-      <div className="container m-auto mt-5 table-responsive table-responsive-sm table-responsive-md">
+      <div
+        className="container m-auto mt-5 table-responsive table-responsive-sm table-responsive-md"
+        style={{
+          padding: "20px",
+          borderRadius: "10px",
+        }}
+      >
         <table className="table table-hover">
-          <thead className="text-success fs-4">
+          <thead
+            className="text-success fs-4"
+            style={{ color: "red", fontSize: "1.25rem" }}
+          >
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
@@ -91,6 +115,7 @@ export default function Cart() {
                     type="button"
                     className="btn p-0"
                     onClick={() => dispatch({ type: "REMOVE", index })}
+                    style={{ color: "red" }}
                   >
                     <DeleteIcon />
                   </button>
@@ -99,24 +124,50 @@ export default function Cart() {
             ))}
           </tbody>
         </table>
-        <div>
-          <h1 className="fs-2">Total Price: {totalPrice}/-</h1>
+        <div
+          style={{ marginTop: "20px", fontSize: "1.5rem", fontWeight: "bold" }}
+        >
+          <h1>Total Price: {totalPrice}/-</h1>
         </div>
         {error && (
-          <div className="alert alert-danger mt-3" role="alert">
+          <div
+            className="alert alert-danger mt-3"
+            role="alert"
+            style={{ textAlign: "center", marginTop: "20px" }}
+          >
             {error}
           </div>
         )}
         {success && (
-          <div className="alert alert-success mt-3" role="alert">
+          <div
+            className="alert alert-success mt-3"
+            role="alert"
+            style={{ textAlign: "center", marginTop: "20px" }}
+          >
             Checkout completed successfully!
           </div>
         )}
-        <div>
+        <div
+          className="checkout-button-container"
+          style={{
+            marginTop: "30px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           <button
-            className="btn bg-success mt-5"
+            className="btn checkout-btn"
             onClick={handleCheckOut}
             disabled={loading}
+            style={{
+              backgroundColor: "green",
+              color: "white",
+              padding: "10px 20px",
+              fontSize: "1.25rem",
+              border: "none",
+              borderRadius: "5px",
+              cursor: loading ? "not-allowed" : "pointer",
+            }}
           >
             {loading ? "Processing..." : "Check Out"}
           </button>

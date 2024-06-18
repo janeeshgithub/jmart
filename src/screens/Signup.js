@@ -60,6 +60,7 @@ export default function Signup() {
           onSubmit={handleSubmit}
           style={{ padding: "20px", borderRadius: "10px" }}
         >
+          <h1>&nbsp;JMART &nbsp;Icons&nbsp;</h1>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
               Name
@@ -73,11 +74,7 @@ export default function Signup() {
             />
           </div>
           <div className="mb-3">
-            <label
-              htmlFor="exampleInputEmail1"
-              className="form-label"
-              style={{ color: "blue" }}
-            >
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
             </label>
             <input

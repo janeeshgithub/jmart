@@ -55,7 +55,7 @@ export default function Home() {
               <img
                 src="https://wallpapers-clan.com/wp-content/uploads/2024/05/marvel-star-lord-with-quad-blasters-desktop-wallpaper-cover.jpg"
                 className="d-block w-100"
-                style={{ filter: "brightness(60%)" }}
+                style={{ filter: "brightness(95%)" }}
                 alt="..."
               />
             </div>
@@ -63,7 +63,7 @@ export default function Home() {
               <img
                 src="https://wallpapers-clan.com/wp-content/uploads/2024/04/marvel-scary-venom-dark-blue-purple-desktop-wallpaper-cover.jpg"
                 className="d-block w-100"
-                style={{ filter: "brightness(80%)" }}
+                style={{ filter: "brightness(95%)" }}
                 alt="..."
               />
             </div>
@@ -71,7 +71,7 @@ export default function Home() {
               <img
                 src="https://wallpapers-clan.com/wp-content/uploads/2024/04/marvel-spiderman-night-cityscape-desktop-wallpaper-preview.jpg"
                 className="d-block w-100"
-                style={{ filter: "brightness(90%)" }}
+                style={{ filter: "brightness(95%)" }}
                 alt="..."
               />
             </div>

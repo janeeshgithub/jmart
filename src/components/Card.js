@@ -55,18 +55,23 @@ export default function Card(props) {
         style={{ width: "20rem", maxHeight: "500px", borderRadius: "15px" }}
       >
         <img
-          src={props.itemsName.img}
+          src={
+            props.itemsName.img ||
+            "https://janeesh.me/assets/me-D54fZ-Xy.png"
+          }
           alt="..."
           className="card-img-top"
           style={{
             borderTopLeftRadius: "15px",
             borderTopRightRadius: "15px",
-            height: "120px", // Add "px" for height value
+            height: "120px",
+            objectFit:"cover",
+            width:"100" // Add "px" for height value
           }}
         />
         <div className="card-body">
           <h5 className="card-title">{props.itemsName.name}</h5>
-          <p className="card-text">{"HELLO"}</p>
+          <p className="card-text">{props.description}</p>
           <div className="container w-100">
             <div className="d-flex justify-content-between">
               <select

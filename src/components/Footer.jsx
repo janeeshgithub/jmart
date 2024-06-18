@@ -18,21 +18,19 @@ export default function Footer() {
           </Link>
         </div>
         <div className="col-md-4 d-flex justify-content-center align-items-center">
-          <span className="mx-2">© 2024 Jmart, Inc. All rights reserved.</span>
+          <span className="mx-2">
+            © 2024 Jmart Icons, Inc. All rights reserved.
+          </span>
         </div>
         <div className="col-md-4 d-flex justify-content-end">
-          <Link
-            to="/about"
+          <a
+            href="https://www.janeesh.me"
             className="me-3 text-body-secondary text-decoration-none"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            About Us
-          </Link>
-          <Link
-            to="/contact"
-            className="text-body-secondary text-decoration-none"
-          >
-            Contact
-          </Link>
+            About Me
+          </a>
         </div>
       </footer>
     </div>

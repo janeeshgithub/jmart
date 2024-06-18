@@ -43,6 +43,7 @@ export default function Login() {
   };
   return (
     <>
+    
       <div
         className="container form-container"
         style={{
@@ -57,8 +58,10 @@ export default function Login() {
           padding: "20px",
         }}
       >
+      
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
+          <h1>LOGIN</h1>
             <label
               htmlFor="exampleInputEmail1"
               className="form-label "
@@ -75,7 +78,7 @@ export default function Login() {
               aria-describedby="emailHelp"
               onChange={onChange}
             />
-            <div id="emailHelp" className="form-text text-bg-dark">
+            <div id="emailHelp" className="form-text">
               We'll never share your email with anyone else.
             </div>
           </div>
