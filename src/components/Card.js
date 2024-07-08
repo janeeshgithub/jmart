@@ -56,8 +56,8 @@ export default function Card(props) {
       >
         <img
           src={
-            props.itemsName.img ||
-            "https://janeesh.me/assets/me-D54fZ-Xy.png"
+            props.itemsName.img ||"https://janeesh.me/assets/me-D54fZ-Xy.png"
+            
           }
           alt="..."
           className="card-img-top"

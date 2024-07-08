@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoDB = require("./db");
+const path = require("path");
 
 const app = express();
 const port = 5000;
@@ -9,7 +10,7 @@ mongoDB();
 
 // Middleware to handle CORS
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5000");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
@@ -26,8 +27,12 @@ app.use("/api", require("./Routes/DisplayData"));
 app.use("/api", require("./Routes/OrderData"));
 
 // Default route
-app.get("/", (req, res) => {
-  res.send("Hello");
+// app.get("/", (req, res) => {
+//   res.send("Hello Js");
+// });
+app.use(express.static(path.join(__dirname, '../build')));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
 // Basic error handling middleware
